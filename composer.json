@@ -1,0 +1,37 @@
+{
+    "name": "quillstack/config",
+    "description": "The package to organise a configuration of your application.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "config",
+        "configuration",
+        "php7",
+        "php"
+    ],
+    "homepage": "https://quillstack.com/config",
+    "authors": [
+        {
+            "name": "Radek Ziemniewicz",
+            "email": "open-source@quillstack.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "quillstack/di": "^1.6"
+    },
+    "autoload": {
+        "files": [
+            "src/config.helper.php"
+        ],
+        "psr-4": {
+            "QuillStack\\Config\\": "src/QuillStack/Config/",
+            "QuillStack\\Tests\\": "tests/QuillStack/Tests/",
+            "QuillStack\\Mocks\\": "tests/QuillStack/Mocks/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.1",
+        "phpunit/phpunit": "^9"
+    }
+}
