@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace QuillStack\Mocks\Config;
+namespace Quillstack\Config\Tests\Mocks;
 
-use QuillStack\Config\Config;
+use Quillstack\Config\Config;
 
-final class AwsConfigMock extends Config
+class AwsConfigMock extends Config
 {
     protected array $config = [
         'token' => [

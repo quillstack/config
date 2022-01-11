@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use QuillStack\Config\Config;
-use QuillStack\Config\ConfigProviderInterface;
+use Quillstack\Config\Config;
+use Quillstack\Config\ConfigProviderInterface;
 
 if (!function_exists('config')) {
     /**

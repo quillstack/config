@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace QuillStack\Config;
+namespace Quillstack\Config;
 
 class Config implements ConfigInterface
 {
