@@ -13,25 +13,28 @@
     "authors": [
         {
             "name": "Radek Ziemniewicz",
-            "email": "open-source@quillstack.com"
+            "email": "radek@quillstack.org"
         }
     ],
     "require": {
-        "php": "^7.4",
-        "quillstack/di": "^1.6"
+        "php": "^8",
+        "quillstack/di": "^0.0.7"
     },
     "autoload": {
         "files": [
             "src/config.helper.php"
         ],
         "psr-4": {
-            "QuillStack\\Config\\": "src/QuillStack/Config/",
-            "QuillStack\\Tests\\": "tests/QuillStack/Tests/",
-            "QuillStack\\Mocks\\": "tests/QuillStack/Mocks/"
+            "Quillstack\\Config\\": "src/",
+            "Quillstack\\Config\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.x-dev"
         }
     },
     "require-dev": {
-        "symfony/var-dumper": "^5.1",
-        "phpunit/phpunit": "^9"
+        "quillstack/unit-tests": "^0.2.10"
     }
 }

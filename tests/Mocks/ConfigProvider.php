@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace QuillStack\Mocks;
 
-use QuillStack\Config\ConfigProviderInterface;
-use QuillStack\Mocks\Config\AwsConfigMock;
+use Quillstack\Config\ConfigProviderInterface;
+use Quillstack\Mocks\Config\AwsConfigMock;
 
 final class ConfigProvider implements ConfigProviderInterface
 {
