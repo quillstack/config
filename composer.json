@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^8",
-        "quillstack/di": "^0.0.7"
+        "quillstack/di": "^0.0.8"
     },
     "autoload": {
         "files": [
