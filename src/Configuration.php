@@ -29,8 +29,9 @@ class Configuration
             return $default;
         }
 
-        return $this->container
-            ->get($classes[$name])
-            ->get(implode(Config::DELIMITER, $keys), $default);
+        /** @var ConfigInterface $config */
+        $config = $this->container->get($classes[$name]);
+
+        return $config->get(implode(Config::DELIMITER, $keys), $default);
     }
 }

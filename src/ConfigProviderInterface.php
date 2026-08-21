@@ -7,9 +7,9 @@ namespace Quillstack\Config;
 interface ConfigProviderInterface
 {
     /**
-     * Loads config classes.
+     * Loads config classes, keyed by the name they are addressed under.
      *
-     * @return array
+     * @return array<string, class-string<ConfigInterface>>
      */
     public function load(): array;
 }

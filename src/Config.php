@@ -14,6 +14,9 @@ class Config implements ConfigInterface
     /**
      * @var array
      */
+    /**
+     * @var array<string, mixed>
+     */
     protected array $config = [];
 
     /**
@@ -32,18 +35,16 @@ class Config implements ConfigInterface
     }
 
     /**
-     * @param array $tree
-     * @param array $branch
-     *
-     * @return mixed|null
+     * @param array<string, mixed> $tree
+     * @param string[] $branch
      */
-    private function find(array $tree, array $branch)
+    private function find(mixed $tree, array $branch): mixed
     {
         $found = null;
         $size = count($branch) - 1;
 
         foreach ($branch as $index => $node) {
-            if (!isset($tree[$node])) {
+            if (!is_array($tree) || !isset($tree[$node])) {
                 return null;
             }
 
