@@ -19,7 +19,7 @@ class Config implements ConfigInterface
     /**
      * {@inheritDoc}
      */
-    final public function get(string $key, $default = null)
+    final public function get(string $key, mixed $default = null): mixed
     {
         $branch = explode(self::DELIMITER, $key);
         $value = $this->find($this->config, $branch);

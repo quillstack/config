@@ -7,10 +7,7 @@ namespace Quillstack\Config;
 interface ConfigInterface
 {
     /**
-     * @param string $key
-     * @param $default
-     *
-     * @return mixed
+     * The value under the given key, or the default when there is nothing there.
      */
-    public function get(string $key, $default);
+    public function get(string $key, mixed $default = null): mixed;
 }
