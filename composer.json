@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^8",
-        "quillstack/di": "^0.0.8"
+        "quillstack/di": "^0.0.8 || ^0.1"
     },
     "autoload": {
         "files": [
@@ -35,6 +35,6 @@
         }
     },
     "require-dev": {
-        "quillstack/unit-tests": "^0.2.10"
+        "quillstack/unit-tests": "^0.3"
     }
 }
