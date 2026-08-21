@@ -1,6 +1,6 @@
 # Quillstack Config
 
-[![Build Status](https://app.travis-ci.com/quillstack/config.svg?branch=main)](https://app.travis-ci.com/quillstack/config)
+[![Tests](https://github.com/quillstack/config/actions/workflows/tests.yml/badge.svg)](https://github.com/quillstack/config/actions/workflows/tests.yml)
 [![Downloads](https://img.shields.io/packagist/dt/quillstack/config.svg)](https://packagist.org/packages/quillstack/config)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=quillstack_config&metric=coverage)](https://sonarcloud.io/summary/new_code?id=quillstack_config)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=quillstack_config&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=quillstack_config)
