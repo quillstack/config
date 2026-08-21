@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^8",
-        "quillstack/di": "^0.0.8 || ^0.1"
+        "quillstack/di": "^0.1"
     },
     "autoload": {
         "files": [
@@ -31,7 +31,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.x-dev"
+            "dev-main": "0.1.x-dev"
         }
     },
     "require-dev": {
