@@ -1,16 +1,13 @@
 # Quillstack Config
 
 [![Tests](https://github.com/quillstack/config/actions/workflows/tests.yml/badge.svg)](https://github.com/quillstack/config/actions/workflows/tests.yml)
+[![Latest Version](https://img.shields.io/packagist/v/quillstack/config.svg)](https://packagist.org/packages/quillstack/config)
 [![Downloads](https://img.shields.io/packagist/dt/quillstack/config.svg)](https://packagist.org/packages/quillstack/config)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=quillstack_config&metric=coverage)](https://sonarcloud.io/summary/new_code?id=quillstack_config)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=quillstack_config&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=quillstack_config)
+[![PHP Version](https://img.shields.io/packagist/php-v/quillstack/config)](https://packagist.org/packages/quillstack/config)
 [![StyleCI](https://github.styleci.io/repos/306445448/shield?branch=main)](https://github.styleci.io/repos/306445448?branch=main)
 [![CodeFactor](https://www.codefactor.io/repository/github/quillstack/config/badge)](https://www.codefactor.io/repository/github/quillstack/config)
-![Packagist License](https://img.shields.io/packagist/l/quillstack/config)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=quillstack_config&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=quillstack_config)
 [![Maintainability](https://api.codeclimate.com/v1/badges/27e6ebd0260bf0e844fa/maintainability)](https://codeclimate.com/github/quillstack/config/maintainability)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=quillstack_config&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=quillstack_config)
-![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/quillstack/config)
+[![License](https://img.shields.io/packagist/l/quillstack/config)](https://github.com/quillstack/config/blob/main/LICENSE)
 
 The package to organise a configuration of your application.
 
