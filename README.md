@@ -21,19 +21,29 @@ Configuration is written as classes rather than arrays in files, so a value has 
 declared, a type, and something to jump to. Reading one is a single string: `aws.token.current`
 names the class first and the key inside it after.
 
-### Requirements
+## Why this exists
+
+Configuration in most PHP applications is arrays in files, read by string keys that nothing
+checks. A typo in `config/aws.php` is found when something is `null` at three in the morning.
+
+Here a group of settings is **a class**, so the file is a class file, static analysis sees the
+array, and a rename is a rename rather than a silent miss. The provider says which classes exist
+and the reader walks into them by key. What is not there is the default you asked for, because
+configuration is read in places that have something better to do than catch.
+
+## Requirements
 
 - PHP 8.1 or newer
 
-### Installation
+## Installation
 
 ```shell
 composer require quillstack/config
 ```
 
-### Usage
+## Usage
 
-#### A configuration class
+### A configuration class
 
 Extend `Config` and say what it holds:
 
@@ -52,7 +62,7 @@ final class AwsConfig extends Config
 }
 ```
 
-#### Saying which classes there are
+### Saying which classes there are
 
 ```php
 use Quillstack\Config\ConfigProviderInterface;
@@ -69,7 +79,7 @@ final class ConfigProvider implements ConfigProviderInterface
 }
 ```
 
-#### Reading
+### Reading
 
 ```php
 $configuration->get('aws.region');            // 'eu-central-1'
@@ -83,7 +93,7 @@ The first part names the class the provider listed; the rest walks into it, howe
 goes. Nothing found is the default rather than a failure, because configuration is read in
 places which have something better to do than catch.
 
-### Technical documentation
+## Technical documentation
 
 | Class | What it is |
 | --- | --- |
@@ -98,7 +108,37 @@ holds, not how it is read.
 The classes are built through the container, so a configuration which needs something — an
 environment reader, a secret store — asks for it in the usual way.
 
-### Unit tests
+## Benchmark
+
+Measured with [quillstack/benchmark](https://github.com/quillstack/benchmark) on two thousand
+reads — one key three levels deep and one that is not there — from the same settings. Runs are
+interleaved and unconcurrent, each figure is the median of five, and PHP is 8.5.7.
+
+| | Version |
+| --- | --- |
+| quillstack/config | 0.6.0 |
+| hassankhan/config | 3.2.0 |
+
+| | Per read | Relative |
+| --- | --- | --- |
+| hassankhan/config | 0.11 µs | 0.32× |
+| **quillstack/config** | **0.35 µs** | — |
+
+**This one is three times slower and the reason is the design.** `hassankhan/config` flattens
+everything into one array when it loads, so a read is a single lookup. This asks the container
+for the class named by the first part of the key and walks into it — which is what makes a group
+of settings a class that static analysis can see, and what costs the other quarter of a
+microsecond.
+
+`symfony/config` is not in the table. It is a different tool: a builder for validating the shape
+of configuration, with a tree definition and a processor, rather than something you read a key
+out of at runtime. Comparing them on `get()` would be comparing two things that do not do the
+same job.
+
+At a third of a microsecond, an application reading two hundred settings during a request spends
+seventy microseconds on it.
+
+## Tests
 
 ```shell
 composer test
@@ -106,13 +146,15 @@ composer test:coverage
 composer stan
 ```
 
-### Docker
+## The rest of Quillstack
 
-```shell
-docker-compose up -d
-docker exec -w /var/www/html -it quillstack_config sh
-```
+This is one component of [Quillstack](https://github.com/quillstack), a PHP framework which is
+as simple to use as it is strict about what it does.
 
-### License
+- [quillstack/dotenv](https://github.com/quillstack/dotenv) — where values that change by environment come from
+- [quillstack/di](https://github.com/quillstack/di) — what builds a configuration class
+- [quillstack/framework](https://github.com/quillstack/framework) — where the provider is registered
+
+## License
 
 MIT. See [LICENSE](LICENSE).
